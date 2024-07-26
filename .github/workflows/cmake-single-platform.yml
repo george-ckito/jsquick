@@ -26,14 +26,10 @@ jobs:
             mingw-w64-x86_64-cmake
 
       - name: Install NSIS
-        run: |
-          choco install nsis
-          
+        run: choco install nsis
+
       - name: Add NSIS to PATH
-        shell: powershell
-        run: |
-          $env:PATH += ";C:\Program Files (x86)\NSIS"
-          echo "::add-path::C:\Program Files (x86)\NSIS"
+        run: echo "C:\Program Files (x86)\NSIS" >> $env:GITHUB_PATH
 
       - name: Configure CMake
         run: |
