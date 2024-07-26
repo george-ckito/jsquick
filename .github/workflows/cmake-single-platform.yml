@@ -25,8 +25,8 @@ jobs:
             mingw-w64-x86_64-toolchain
             mingw-w64-x86_64-cmake
 
-      - name: Install NSIS
-        run: choco install nsis --version 3.08.1
+      - name: Ensure NSIS is installed
+        run: choco install nsis --yes
 
       - name: Add NSIS to PATH
         run: echo "C:\Program Files (x86)\NSIS" >> $env:GITHUB_PATH
