@@ -24,6 +24,15 @@ namespace Create {
         }
         return std::string(buffer);
     }
+
+    std::string getExecutableDir() {
+        std::string execPath = getExecutablePath();
+        std::string dirPath = execPath.substr(0, execPath.find_last_of("\\/"));
+
+        // Remove one more directory level
+        std::string parentDir = dirPath.substr(0, dirPath.find_last_of("\\/"));
+        return parentDir;
+    }
     bool isDirectoryEmpty(const std::string& directoryPath) {
         WIN32_FIND_DATA findFileData;
         HANDLE hFind = FindFirstFile((directoryPath + "\\*").c_str(), &findFileData);
@@ -45,10 +54,7 @@ namespace Create {
         return isEmpty;
     }
 
-    std::string getExecutableDir() {
-        std::string execPath = getExecutablePath();
-        return execPath.substr(0, execPath.find_last_of("\\/"));
-    }
+
 
     bool fileExists(const std::string& path) {
         std::ifstream file(path);
@@ -238,8 +244,8 @@ namespace Create {
         std::string path2 = getCurrentWorkingDirectory() + "\\" + dir.name + "\\public";
         std::string path3 = getCurrentWorkingDirectory() + "\\" + dir.name + "\\jsquick";
         std::string path4 = getCurrentWorkingDirectory() + "\\" + dir.name + "\\src\\css";
-
         std::string srcDir = getExecutableDir() + "\\react";
+
         CreateDirectory(path.c_str(), NULL);
         if(!isDirectoryEmpty(path)) {
             Log::logError(path + " is not empty");

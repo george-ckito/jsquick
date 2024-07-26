@@ -38,4 +38,46 @@ add_custom_command(
         COMMAND ${CMAKE_COMMAND} -E make_directory ${DEST_DIR3}  # Create destination directory if not exists
         COMMAND ${CMAKE_COMMAND} -E copy_directory ${SOURCE_DIR3} ${DEST_DIR3}
 )
-include(CPackConfig.cmake)
+install(TARGETS jsquick DESTINATION bin)
+install(FILES
+        color.hpp
+        inquirer.h
+        Log/Log.cpp
+        Log/Log.h
+        Input/Input.cpp
+        Input/Input.h
+        Create/Create.cpp
+        Create/Create.h
+        json.hpp
+        json.hpp
+        New/New.cpp
+        New/New.h
+        List/List.cpp
+        List/List.h
+        DESTINATION src
+)
+install(DIRECTORY ${CMAKE_BINARY_DIR}/api/ DESTINATION api/)
+install(DIRECTORY ${CMAKE_BINARY_DIR}/dbot/ DESTINATION dbot/)
+install(DIRECTORY ${CMAKE_BINARY_DIR}/react/ DESTINATION react/)
+
+## CPack configuration
+include(CPack)
+
+set(CPACK_PACKAGE_NAME "jsquick")
+set(CPACK_PACKAGE_VERSION "1.0")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "jsquick - A CLI Program To Easily Generate NodeJS Projects")
+set(CPACK_PACKAGE_VENDOR "George Tskitishvili")
+set(CPACK_PACKAGE_CONTACT "contact@georgeckito.xyz")
+set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}")
+set(CPACK_PACKAGE_INSTALL_DIRECTORY "jsquick")
+#
+## Specify the type of installer you want to create
+    set(CPACK_GENERATOR "NSIS")
+
+#
+## Additional NSIS configuration for Windows
+if(WIN32)
+    set(CPACK_NSIS_DISPLAY_NAME "${CPACK_PACKAGE_NAME} ${CPACK_PACKAGE_VERSION}")
+    set(CPACK_NSIS_CONTACT "contact@georgeckito.xyz")
+    set(CPACK_NSIS_MODIFY_PATH ON)
+endif()

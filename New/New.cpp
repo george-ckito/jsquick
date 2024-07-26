@@ -341,7 +341,9 @@ case DiscordEvent::WebhooksUpdate: return "WebhooksUpdate";
         std::ofstream fout(Create::getCurrentWorkingDirectory() + "\\.jsquick");
         fout << std::setw(4) << jsquick;
         fout.close();
+        return "";
     }
+
     std::string newCommand() {
         Log::logTitle();
         if(checkProject() != "Dbot") {
@@ -376,5 +378,6 @@ case DiscordEvent::WebhooksUpdate: return "WebhooksUpdate";
         std::ofstream jsFout(Create::getCurrentWorkingDirectory() + "\\.jsquick");
         jsFout << std::setw(4) << jsquick;
         jsFout.close();
+        return "";
     }
 } // New
