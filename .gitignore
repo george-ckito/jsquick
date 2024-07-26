@@ -1,0 +1,4 @@
+/api/node_modules/
+/react/node_modules/
+/reactrouter/node_modules/
+/cmake-build-debug/
