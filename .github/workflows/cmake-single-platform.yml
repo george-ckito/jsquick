@@ -31,8 +31,9 @@ jobs:
       - name: Add NSIS to PATH
         run: echo "C:\Program Files (x86)\NSIS" >> $env:GITHUB_PATH
 
-      - name: Check PATH
-        run: echo $env:PATH
+      - name: Verify NSIS Installation
+        run: |
+          "C:\Program Files (x86)\NSIS\makensis.exe" /?
 
       - name: Configure CMake
         run: |
@@ -45,13 +46,17 @@ jobs:
       - name: Package with CPack
         run: |
           cd build
-          cpack -G NSIS
+          cpack -G NSIS --verbose
+
+      - name: Check NSIS Output Log
+        run: |
+          type build/_CPack_Packages/win64/NSIS/NSISOutput.log
 
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
-          MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+          MY_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: v1.0.0
           release_name: Release v1.0.0
@@ -61,7 +66,7 @@ jobs:
       - name: Upload Installer
         uses: actions/upload-release-asset@v1
         env:
-          MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+          MY_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: build/jsquick-1.0.0-win64.exe
