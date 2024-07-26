@@ -38,3 +38,4 @@ add_custom_command(
         COMMAND ${CMAKE_COMMAND} -E make_directory ${DEST_DIR3}  # Create destination directory if not exists
         COMMAND ${CMAKE_COMMAND} -E copy_directory ${SOURCE_DIR3} ${DEST_DIR3}
 )
+include(CPackConfig.cmake)
