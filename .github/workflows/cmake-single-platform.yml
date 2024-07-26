@@ -33,7 +33,7 @@ jobs:
 
       - name: Verify NSIS Installation
         run: |
-          "C:\Program Files (x86)\NSIS\makensis.exe" /?
+          cmd.exe /c "C:\Program Files (x86)\NSIS\makensis.exe" /?
 
       - name: Configure CMake
         run: |
