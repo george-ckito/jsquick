@@ -27,15 +27,15 @@ set(SOURCE_DIR3 ${CMAKE_SOURCE_DIR}/dbot)
 set(DEST_DIR3 ${CMAKE_BINARY_DIR}/dbot)
 set(CMAKE_EXE_LINKER_FLAGS "-static")
 
-# Add a custom command to copy the entire directory after the target is built
+
 add_custom_command(
-        TARGET jsquick  # Use the created target name
+        TARGET jsquick
         POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E make_directory ${DEST_DIR}  # Create destination directory if not exists
+        COMMAND ${CMAKE_COMMAND} -E make_directory ${DEST_DIR}
         COMMAND ${CMAKE_COMMAND} -E copy_directory ${SOURCE_DIR} ${DEST_DIR}
-        COMMAND ${CMAKE_COMMAND} -E make_directory ${DEST_DIR1}  # Create destination directory if not exists
+        COMMAND ${CMAKE_COMMAND} -E make_directory ${DEST_DIR1}
         COMMAND ${CMAKE_COMMAND} -E copy_directory ${SOURCE_DIR1} ${DEST_DIR1}
-        COMMAND ${CMAKE_COMMAND} -E make_directory ${DEST_DIR3}  # Create destination directory if not exists
+        COMMAND ${CMAKE_COMMAND} -E make_directory ${DEST_DIR3}
         COMMAND ${CMAKE_COMMAND} -E copy_directory ${SOURCE_DIR3} ${DEST_DIR3}
 )
 install(TARGETS jsquick DESTINATION bin)
@@ -60,7 +60,6 @@ install(DIRECTORY ${CMAKE_BINARY_DIR}/api/ DESTINATION api/)
 install(DIRECTORY ${CMAKE_BINARY_DIR}/dbot/ DESTINATION dbot/)
 install(DIRECTORY ${CMAKE_BINARY_DIR}/react/ DESTINATION react/)
 
-## CPack configuration
 include(CPack)
 
 set(CPACK_PACKAGE_NAME "jsquick")
@@ -70,12 +69,8 @@ set(CPACK_PACKAGE_VENDOR "George Tskitishvili")
 set(CPACK_PACKAGE_CONTACT "contact@georgeckito.xyz")
 set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}")
 set(CPACK_PACKAGE_INSTALL_DIRECTORY "jsquick")
-#
-## Specify the type of installer you want to create
-    set(CPACK_GENERATOR "NSIS")
+set(CPACK_GENERATOR "NSIS")
 
-#
-## Additional NSIS configuration for Windows
 if(WIN32)
     set(CPACK_NSIS_DISPLAY_NAME "${CPACK_PACKAGE_NAME} ${CPACK_PACKAGE_VERSION}")
     set(CPACK_NSIS_CONTACT "contact@georgeckito.xyz")
