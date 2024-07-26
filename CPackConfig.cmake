@@ -1,0 +1,9 @@
+include(InstallRequiredSystemLibraries)
+set(CPACK_PACKAGE_NAME "jsquick")
+set(CPACK_PACKAGE_VERSION "1.0.0")
+set(CPACK_NSIS_DISPLAY_NAME "${CPACK_PACKAGE_INSTALL_DIRECTORY} Jsquick")
+set(CPACK_NSIS_MODIFY_PATH ON)
+set(CPACK_PACKAGE_INSTALL_DIRECTORY "Jsquick")
+set(CPACK_PACKAGE_EXECUTABLES "jsquick" "Jsquick")
+
+include(CPack)
