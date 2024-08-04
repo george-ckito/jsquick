@@ -17,7 +17,11 @@ add_executable(jsquick main.cpp
         New/New.cpp
         New/New.h
         List/List.cpp
-        List/List.h)
+        List/List.h
+        Utility/Utility.cpp
+        Utility/Utility.h
+        API.cpp
+        API.h)
 # Specify the source and destination directories
 set(SOURCE_DIR ${CMAKE_SOURCE_DIR}/api)
 set(DEST_DIR ${CMAKE_BINARY_DIR}/api)
