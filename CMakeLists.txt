@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.28)
+cmake_minimum_required(VERSION 3.22.1)
 project(jsquick)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -21,7 +21,9 @@ add_executable(jsquick main.cpp
         Utility/Utility.cpp
         Utility/Utility.h
         API.cpp
-        API.h)
+        API.h
+        Project.cpp
+        Project.h)
 # Specify the source and destination directories
 set(SOURCE_DIR ${CMAKE_SOURCE_DIR}/api)
 set(DEST_DIR ${CMAKE_BINARY_DIR}/api)

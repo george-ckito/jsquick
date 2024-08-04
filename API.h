@@ -6,35 +6,22 @@
 #define API_H
 #include <string>
 #include <vector>
-
+#include "Input/Input.h"
 #include "json.hpp"
+#include "Project.h"
 #include "Utility/Utility.h"
 
 namespace project {
 
-class API {
+class API : public Project {
 private:
-    std::string path;
-    std::string srcDir = Utility::getExecutableDir() + "\\api";
-    std::vector<std::string> files = {
-        "\\index.js",
-        "\\routes\\example.js",
-        "\\jsquick\\handleRoutes.js",
-        "\\jsquick\\loadFiles.js",
-        "\\jsquick\\log.js"
-    };
-    nlohmann::json jsquick;
+    std::string mongodb;
 public:
-    API();
-    std::string getPath();
-    void setPath(std::string path);
-    void create();
-    void createFiles();
-    void createFolders();
-    void createJsquick();
-    void createPackage();
-    void installPackages();
+    explicit API(const Input::api& input);
+    std::string getMongodb();
+    void setMongodb(const std::string& mongodb);
 
+    void createENV();
 };
 
 } // project
