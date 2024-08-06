@@ -13,15 +13,13 @@
 
 namespace project {
 
-class API : public Project {
+class api : public Project {
 private:
     std::string mongodb;
 public:
-    explicit API(const Input::api& input);
+    explicit api(const Input::api& input);
     std::string getMongodb();
     void setMongodb(const std::string& mongodb);
-
-    void createENV();
 };
 
 } // project

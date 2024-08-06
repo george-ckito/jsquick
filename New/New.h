@@ -92,7 +92,6 @@ namespace New {
       };
     std::string lowerFirstLetter(const std::string& str);
     std::string eventToString(DiscordEvent event);
-    std::string toLower(std::string str);
     std::string checkProject();
     std::string newRoute();
     std::string newComponent();

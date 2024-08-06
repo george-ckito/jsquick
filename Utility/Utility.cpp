@@ -6,6 +6,8 @@
 #include <windows.h>
 #include <iostream>
 #include "Utility.h"
+
+#include "../json.hpp"
 #include "../Log/Log.h"
 
 namespace Utility {
@@ -90,5 +92,24 @@ namespace Utility {
             Log::logError(std::string("Exception: ") + e.what());
             return false;
         }
+    }
+    std::string toLower(std::string str) {
+        std::string result = "";
+        for (char ch : str) {
+            // Convert each character to lowercase using tolower
+            result += tolower(ch);
+        }
+        return result;
+    }
+    nlohmann::json getJsQuick(const std::string& path) {
+        std::ifstream file(path + "\\.jsquick");
+        nlohmann::json jsquick;
+        if (file.good()) {
+            file >> jsquick;
+        } else {
+            Log::logError("Error opening jsquick, are you in a project directory?");
+        }
+        file.close();
+        return jsquick;
     }
 } // Utility

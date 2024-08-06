@@ -13,7 +13,7 @@ namespace Utility {
     bool isDirectoryEmpty(const std::string& directoryPath);
     bool fileExists(const std::string& path);
     bool copyFile(const std::string& sourcePath, const std::string& destPath);
-
+    std::string toLower(std::string str);
 
 } // Utility
 

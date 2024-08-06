@@ -192,14 +192,6 @@ case DiscordEvent::WebhooksUpdate: return "WebhooksUpdate";
         default: return "UnknownEvent";
     }
 }
-    std::string toLower(std::string str) {
-        std::string result = "";
-        for (char ch : str) {
-            // Convert each character to lowercase using tolower
-            result += tolower(ch);
-        }
-        return result;
-    }
     std::string checkProject() {
         std::string configFile = Create::getCurrentWorkingDirectory() + "\\.jsquick";
         bool projectExist = Create::fileExists(configFile);

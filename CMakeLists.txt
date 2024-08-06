@@ -23,7 +23,18 @@ add_executable(jsquick main.cpp
         API.cpp
         API.h
         Project.cpp
-        Project.h)
+        Project.h
+        React.cpp
+        React.h
+        DiscordBot.cpp
+        DiscordBot.h
+        args.hxx
+        Component.cpp
+        Component.h
+        Route.cpp
+        Route.h
+        Command.cpp
+        Command.h)
 # Specify the source and destination directories
 set(SOURCE_DIR ${CMAKE_SOURCE_DIR}/api)
 set(DEST_DIR ${CMAKE_BINARY_DIR}/api)
@@ -69,7 +80,7 @@ install(DIRECTORY ${CMAKE_BINARY_DIR}/react/ DESTINATION react/)
 include(CPack)
 
 set(CPACK_PACKAGE_NAME "jsquick")
-set(CPACK_PACKAGE_VERSION "1.0")
+set(CPACK_PACKAGE_VERSION "1.0.0")
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "jsquick - A CLI Program To Easily Generate NodeJS Projects")
 set(CPACK_PACKAGE_VENDOR "George Tskitishvili")
 set(CPACK_PACKAGE_CONTACT "contact@georgeckito.xyz")

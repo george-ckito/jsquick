@@ -14,8 +14,8 @@ namespace project {
 
     enum projectType {
         API,
-        React,
-        Dbot
+        REACT,
+        DBOT
     };
 
 class Project {
@@ -25,6 +25,10 @@ private:
     std::string srcDir;
     std::vector<std::string> files;
     std::vector<std::string> folders;
+    std::string env = "";
+    nlohmann::json pkg;
+    bool mongo;
+    bool git;
     nlohmann::json jsquick;
     std::string packages;
 public:
@@ -40,15 +44,21 @@ public:
     void setFiles(const std::vector<std::string>& files);
     std::vector<std::string> getFolders();
     void setFolders(const std::vector<std::string>& files);
+    std::string getEnv();
+    void setEnv(const std::string& env);
+    nlohmann::json getPkg();
+    void setPkg(const nlohmann::json& pkg);
     nlohmann::json getJsquick();
     void setJsquick(const nlohmann::json& jsquick);
+    bool getGit();
+    void setGit(const bool& git);
     void create();
     void createFiles();
     void createFolders();
     void createJsquick();
     void createPackage();
     void installPackages();
-
+    void initGit();
 };
 
 } // project

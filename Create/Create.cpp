@@ -221,7 +221,7 @@ namespace Create {
         Log::logSUCC("Created the files");
         Log::logWarn("Don't modify the .jsquick file");
 
-        std::string installDeps = "cd /d " + path + " && npm install react react-dom";
+        std::string installDeps = "cd /d " + path + " && npm install ";
         std::string installDevDeps = "cd /d " + path + " && npm install --save-dev webpack webpack-cli webpack-dev-server babel-loader @babel/core @babel/preset-env @babel/preset-react html-webpack-plugin css-loader style-loader";
         int resDeps = std::system(installDeps.c_str());
         int resDevDeps = std::system(installDevDeps.c_str());
