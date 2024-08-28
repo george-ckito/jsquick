@@ -20,7 +20,7 @@
   <p align="center">
     A CLI Program Written In C++ To Help You Make NodeJS Projects
     <br />
-    <a href="https://jsquick.georgeckito.xyz"><strong>Check out the website</strong></a>
+    <a href="https://jsquick.georgeckito.site"><strong>Check out the website</strong></a>
     <br />
     <br />
   </p>
